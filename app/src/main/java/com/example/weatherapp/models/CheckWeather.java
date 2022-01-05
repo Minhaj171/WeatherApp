@@ -1,25 +1,50 @@
 package com.example.weatherapp.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class CheckWeather {
-    public int id;
-    public String name;
-    public Coord coord;
-    public Main main;
-    public int dt;
-    public Wind wind;
-    public Sys sys;
-    public Object rain;
-    public Object snow;
-    public Clouds clouds;
-    public List<Weather> weather;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("coord")
+    @Expose
+    private Coord coord;
+    @SerializedName("main")
+    @Expose
+    private Main main;
+    @SerializedName("dt")
+    @Expose
+    private Integer dt;
+    @SerializedName("wind")
+    @Expose
+    private Wind wind;
+    @SerializedName("sys")
+    @Expose
+    private Sys sys;
+    @SerializedName("rain")
+    @Expose
+    private Object rain;
+    @SerializedName("snow")
+    @Expose
+    private Object snow;
+    @SerializedName("clouds")
+    @Expose
+    private Clouds clouds;
+    @SerializedName("weather")
+    @Expose
+    private List<Weather> weather;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,11 +72,11 @@ public class CheckWeather {
         this.main = main;
     }
 
-    public int getDt() {
+    public Integer getDt() {
         return dt;
     }
 
-    public void setDt(int dt) {
+    public void setDt(Integer dt) {
         this.dt = dt;
     }
 
