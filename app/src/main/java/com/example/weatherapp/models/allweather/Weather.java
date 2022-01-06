@@ -1,16 +1,27 @@
-package com.example.weatherapp.models;
+package com.example.weatherapp.models.allweather;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Weather {
-    public int id;
-    public String main;
-    public String description;
-    public String icon;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("main")
+    @Expose
+    private String main;
+    @SerializedName("description")
+    @Expose
+    private String description;
+    @SerializedName("icon")
+    @Expose
+    private String icon;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
