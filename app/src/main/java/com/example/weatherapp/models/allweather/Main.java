@@ -22,6 +22,12 @@ public class Main {
     @SerializedName("humidity")
     @Expose
     private Integer humidity;
+    @SerializedName("sea_level")
+    @Expose
+    private Integer seaLevel;
+    @SerializedName("grnd_level")
+    @Expose
+    private Integer grndLevel;
 
     public Double getTemp() {
         return temp;
@@ -71,5 +77,20 @@ public class Main {
         this.humidity = humidity;
     }
 
+    public Integer getSeaLevel() {
+        return seaLevel;
+    }
+
+    public void setSeaLevel(Integer seaLevel) {
+        this.seaLevel = seaLevel;
+    }
+
+    public Integer getGrndLevel() {
+        return grndLevel;
+    }
+
+    public void setGrndLevel(Integer grndLevel) {
+        this.grndLevel = grndLevel;
+    }
 
 }

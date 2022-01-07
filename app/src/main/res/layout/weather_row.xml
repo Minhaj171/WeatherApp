@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="rowBinding"
+            type="com.example.weatherapp.models.allweather.CheckWeather" />
+
+        <variable
+            name="todayWeatherName"
+            type="String" />
+
+        <variable
+            name="todayTemp"
+            type="Integer" />
+
+        <variable
+            name="exception"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="266dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{rowBinding.name!=null? rowBinding.name.empty? exception: rowBinding.name: exception}"
+            app:layout_constraintEnd_toStartOf="@+id/weather_temp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weather_temp"
+            android:layout_width="99dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{todayWeatherName!=null? todayWeatherName.empty? exception: todayWeatherName: exception}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weather"
+            android:layout_width="266dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:text="@{String.valueOf(todayTemp)!=null? String.valueOf(todayTemp): exception}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

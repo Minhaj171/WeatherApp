@@ -38,7 +38,7 @@ public class CheckWeather {
     private Clouds clouds;
     @SerializedName("weather")
     @Expose
-    private List<Weather> weather;
+    private List<Weather> weather = null;
 
     public Integer getId() {
         return id;
