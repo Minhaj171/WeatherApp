@@ -1,11 +1,14 @@
 package com.example.weatherapp.models.allweather;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class CheckWeather {
+public class CheckWeather implements Parcelable {
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -39,6 +42,32 @@ public class CheckWeather {
     @SerializedName("weather")
     @Expose
     private List<Weather> weather = null;
+
+    protected CheckWeather(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        name = in.readString();
+        if (in.readByte() == 0) {
+            dt = null;
+        } else {
+            dt = in.readInt();
+        }
+    }
+
+    public static final Creator<CheckWeather> CREATOR = new Creator<CheckWeather>() {
+        @Override
+        public CheckWeather createFromParcel(Parcel in) {
+            return new CheckWeather(in);
+        }
+
+        @Override
+        public CheckWeather[] newArray(int size) {
+            return new CheckWeather[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -126,5 +155,27 @@ public class CheckWeather {
 
     public void setWeather(List<Weather> weather) {
         this.weather = weather;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (id == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(id);
+        }
+        parcel.writeString(name);
+        if (dt == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(dt);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.weatherapp.adapters;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -18,10 +19,12 @@ import java.util.List;
  */
 public class WeatherRowAdapter extends RecyclerView.Adapter<WeatherRowAdapter.ViewHolder> {
     private List<CheckWeather> weatherList;
+    private ICitiesOfWeatherClick iCitiesOfWeatherClick;
 
 
-    public void updateWeather(List<CheckWeather> weatherList){
+    public void updateWeather(List<CheckWeather> weatherList, ICitiesOfWeatherClick iCitiesOfWeatherClick){
         this.weatherList = weatherList;
+        this.iCitiesOfWeatherClick = iCitiesOfWeatherClick;
     }
 
     @NonNull
@@ -59,6 +62,16 @@ public class WeatherRowAdapter extends RecyclerView.Adapter<WeatherRowAdapter.Vi
             Integer temperature=(int)(tempo-273.15);
             binding.setTodayWeatherName(tempName);
             binding.setTodayTemp(temperature);
+
+            binding.layoutWeatherRowMain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getAdapterPosition() != RecyclerView.NO_POSITION){
+                        iCitiesOfWeatherClick.onWeatherClick(checkWeather);
+                    }
+
+                }
+            });
         }
     }
 }

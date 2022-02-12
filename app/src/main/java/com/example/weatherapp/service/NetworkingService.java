@@ -17,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetworkingService {
     public static String API_BASE_URL = Constraints.BASE_URL;
-
     IWeatherData iWeatherData;
 
     // Get client and call object for the request

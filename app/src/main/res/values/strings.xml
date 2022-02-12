@@ -9,5 +9,7 @@
     <string name="unknown_error">Unknown error, please try again later!</string>
     <string name="server_error">The server is offline, please try again later!</string>
     <string name="request_canceled">Request was cancelled</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

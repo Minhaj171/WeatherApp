@@ -24,6 +24,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_weather_row_main"
         android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
