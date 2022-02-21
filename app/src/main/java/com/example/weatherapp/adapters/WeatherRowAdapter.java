@@ -7,10 +7,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.weatherapp.databinding.ActivityMainBinding;
 import com.example.weatherapp.databinding.WeatherRowBinding;
-import com.example.weatherapp.models.allweather.CheckWeather;
-import com.example.weatherapp.models.allweather.Weather;
+import com.example.weatherapp.models.jsonPojo.CheckWeather;
+import com.example.weatherapp.models.jsonPojo.Weather;
 
 import java.util.List;
 

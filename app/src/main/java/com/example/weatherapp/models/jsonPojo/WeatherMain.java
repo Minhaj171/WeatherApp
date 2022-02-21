@@ -1,4 +1,4 @@
-package com.example.weatherapp.models.allweather;
+package com.example.weatherapp.models.jsonPojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Md Minhajul Islam on 1/7/2022.
  */
-public class ParentWeather {
+public class WeatherMain {
     @SerializedName("message")
     @Expose
     private String message;

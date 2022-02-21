@@ -1,4 +1,4 @@
-package com.example.weatherapp.models.allweather;
+package com.example.weatherapp.models.jsonPojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,8 +19,8 @@ import com.example.weatherapp.R;
 import com.example.weatherapp.adapters.ICitiesOfWeatherClick;
 import com.example.weatherapp.adapters.WeatherRowAdapter;
 import com.example.weatherapp.databinding.CitiesFragmentBinding;
-import com.example.weatherapp.models.allweather.CheckWeather;
-import com.example.weatherapp.models.allweather.ParentWeather;
+import com.example.weatherapp.models.jsonPojo.CheckWeather;
+import com.example.weatherapp.models.jsonPojo.WeatherMain;
 import com.example.weatherapp.viewmodel.WeatherViewModel;
 
 import java.util.List;
@@ -49,9 +48,9 @@ public class CitiesFragment extends Fragment implements ICitiesOfWeatherClick {
     }
 
     private void fetchWeatherData(double lat, double lon, int cnt, String apikey) {
-        weatherViewModel.getWeatherData(lat,lon,cnt,apikey).observe(getViewLifecycleOwner(), new Observer<ParentWeather>() {
+        weatherViewModel.getWeatherData(lat,lon,cnt,apikey).observe(getViewLifecycleOwner(), new Observer<WeatherMain>() {
             @Override
-            public void onChanged(ParentWeather parentWeather) {
+            public void onChanged(WeatherMain parentWeather) {
                 setListOfCitiesWeather(parentWeather.getList());
             }
         });

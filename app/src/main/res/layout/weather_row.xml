@@ -7,7 +7,7 @@
 
         <variable
             name="rowBinding"
-            type="com.example.weatherapp.models.allweather.CheckWeather" />
+            type="com.example.weatherapp.models.jsonPojo.CheckWeather" />
 
         <variable
             name="todayWeatherName"
@@ -58,7 +58,7 @@
             android:padding="5dp"
             style="@style/TextAppearance.AppCompat.Headline"
             android:textAlignment="center"
-            android:text="@{String.valueOf(todayTemp)!=null? String.valueOf(todayTemp) + ` c`: exception}"
+            android:text="@{String.valueOf(todayTemp)!=null? String.valueOf(todayTemp)+ `' c`: exception}"
             app:layout_constraintBottom_toBottomOf="@+id/weather_temp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/city_name"

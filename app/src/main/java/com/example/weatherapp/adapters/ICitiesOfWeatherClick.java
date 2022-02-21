@@ -1,6 +1,6 @@
 package com.example.weatherapp.adapters;
 
-import com.example.weatherapp.models.allweather.CheckWeather;
+import com.example.weatherapp.models.jsonPojo.CheckWeather;
 
 /**
  * Created by Md Minhajul Islam on 2/12/2022.

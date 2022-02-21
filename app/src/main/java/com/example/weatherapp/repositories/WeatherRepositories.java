@@ -6,17 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.weatherapp.R;
-import com.example.weatherapp.endpoints.IWeatherData;
-import com.example.weatherapp.models.allweather.ParentWeather;
-import com.example.weatherapp.service.NetworkingService;
+import com.example.weatherapp.models.jsonPojo.WeatherMain;
 
 import java.net.SocketTimeoutException;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Query;
 
 /**
  * Created by Md Minhajul Islam on 1/5/2022.
@@ -25,10 +21,10 @@ public class WeatherRepositories extends BaseRepository{
     private static final String TAG = "WeatherRepositories";
     String apikey = "42ffe227fc17c4179df61cd165c5e1a8";
 
-    private MutableLiveData<ParentWeather> weatherLiveData;
-    public Call<ParentWeather> weatherCall;
+    private MutableLiveData<WeatherMain> weatherLiveData;
+    public Call<WeatherMain> weatherCall;
 
-    public MutableLiveData<ParentWeather> getWeather(Double lat, Double lon, Integer cnt, String token) {
+    public MutableLiveData<WeatherMain> getWeather(Double lat, Double lon, Integer cnt, String token) {
         weatherLiveData = new MutableLiveData<>();
         fetchWeatherData(lat, lon, cnt, token);
         return weatherLiveData;
@@ -36,9 +32,9 @@ public class WeatherRepositories extends BaseRepository{
 
     private void fetchWeatherData(Double lat, Double lon, Integer cnt, String token) {
         weatherCall = getWeatherData().getWeatherList(lat, lon, cnt, token);
-        weatherCall.enqueue(new Callback<ParentWeather>() {
+        weatherCall.enqueue(new Callback<WeatherMain>() {
             @Override
-            public void onResponse(@NonNull Call<ParentWeather> call, @NonNull Response<ParentWeather> response) {
+            public void onResponse(@NonNull Call<WeatherMain> call, @NonNull Response<WeatherMain> response) {
                 if (response.body() != null && response.isSuccessful()) {
                     weatherLiveData.setValue(response.body());
                     Log.d(TAG, "onResponse: "+response.body());
@@ -52,7 +48,7 @@ public class WeatherRepositories extends BaseRepository{
             }
 
             @Override
-            public void onFailure(@NonNull Call<ParentWeather> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<WeatherMain> call, @NonNull Throwable t) {
                 if (t instanceof SocketTimeoutException) {
                     setErrorMessage(R.string.timed_out);
                 } else {

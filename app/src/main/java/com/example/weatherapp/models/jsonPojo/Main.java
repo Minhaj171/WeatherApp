@@ -1,4 +1,4 @@
-package com.example.weatherapp.models.allweather;
+package com.example.weatherapp.models.jsonPojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
